@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<section>
+    <div class="titulo">
+        <span>Lista de usuários</span>
+    </div>
+</section>
+
+<section>
+    <div class="button_new_user">
+        <button mat-fab color="primary" (click)="goToCreate()"><mat-icon>add</mat-icon></button>
+    </div>
+</section>
+
+<section>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList">
+                    <td data-label="Nome">{{user.name}}</td>
+                    <td data-label="Username">{{user.username}}</td>
+                    <td data-label="Status">{{user.admin}}</td>
+                    <td data-label="Menu">
+                        <button mat-mini-fab style="margin-right: 5px;" color="primary" (click)="editUser(user)"><mat-icon>edit</mat-icon></button>
+                        <button mat-mini-fab color="warn" (click)="deleteUser(user.id)"><mat-icon>delete</mat-icon></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
